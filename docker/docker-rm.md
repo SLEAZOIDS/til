@@ -1,12 +1,18 @@
+# コンテナの一括停止
+
+```
+$ docker stop $(docker ps -q)
+```
+
 # dockerのコンテナとイメージのまとめて削除
 
 コンテナまとめて削除
 
 ```
 
-docker ps #確認
+$ docker ps #確認
 
-docker rm `docker ps -a -q`
+$ docker rm `docker ps -a -q`
 
 ```
 
@@ -15,8 +21,8 @@ docker rm `docker ps -a -q`
 
 ```
 
-docker images #確認
+$ docker images #確認
 
-docker rmi `docker images | sed -ne '2,$p' -e 's/  */ /g' | awk '{print $1":"$2}'`
+$ docker rmi `docker images | sed -ne '2,$p' -e 's/  */ /g' | awk '{print $1":"$2}'`
 
 ```
