@@ -26,3 +26,8 @@ $ docker images #確認
 $ docker rmi `docker images | sed -ne '2,$p' -e 's/  */ /g' | awk '{print $1":"$2}'`
 
 ```
+
+イメージ消せない時(noneのやつ）
+```
+docker rmi $(docker images | awk '/^<none>/ { print $3 }')
+```
